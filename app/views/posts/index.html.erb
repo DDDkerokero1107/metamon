@@ -1,0 +1,26 @@
+<div class="main posts-index">
+  <div class="container">
+    <% @posts.each do |post| %>
+      <div class="posts-index-item">
+        <div class="post-left">
+          <img src="<%= "/user_images/#{post.user.image_name}" %>">
+        </div>
+        <div class="post-right">
+          <div class="post-user-name">
+            <%= link_to(post.user.name, "/users/#{post.user.id}") %>
+          </div>
+          <h3>講義名</h3>
+          <%= link_to(post.content, "/posts/#{post.id}") %>
+          <h3>出席の確認方法</h3>
+          <%= link_to(post.attend, "/posts/#{post.id}") %>
+          <h3>試験形式・持ち込み</h3>
+          <%= link_to(post.exam, "/posts/#{post.id}") %>
+          <h3>課題の量</h3>
+          <%= link_to(post.homework, "/posts/#{post.id}") %>
+          <h3>コメント</h3>
+          <%= link_to(post.comment, "/posts/#{post.id}") %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
